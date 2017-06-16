@@ -14,7 +14,11 @@
   <%= f.input :description,label: "内容"%>
   <%= f.input :quantity,label: "库存"%>
   <%= f.input :price,label: "价格"%>
-
+  <% if @product.image.present? %>
+  <span>目前商品图</span><br>
+  <%= image_tag(@product.image.thumb.url)%>
+  <% end %>
+  <%= f.input :image, as: :file%>
   <%= f.button :submit, "发送" %>
   <% end %>
 </div>
