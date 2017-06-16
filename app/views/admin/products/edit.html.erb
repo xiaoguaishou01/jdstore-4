@@ -1,0 +1,20 @@
+<div class="container">
+<h2>edit product</h2>
+
+  <hr>
+  <%= simple_form_for [:admin,@product] do |f| %>
+  <% if @product.errors.any? %>
+  <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <%= f.input :title,:class => "string optional control-label",label: "标题"%><br>
+  <%= f.input :description,label: "内容"%>
+  <%= f.input :quantity,label: "库存"%>
+  <%= f.input :price,label: "价格"%>
+
+  <%= f.button :submit, "发送" %>
+  <% end %>
+</div>
